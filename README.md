@@ -1,71 +1,53 @@
 # Indonesian Numeral Spellers
-### **_(Ubah file README.md ini setelah program diselesaikan)_**
 
-## Latar Belakang
-Mengeja angka merupakan salah satu kegiatan dasar yang dilakukan setiap harinya. Contoh kegiatan tersebut yaitu mengeja harga barang, nilai data, tanggal dan tahun, serta masih banyak lagi. Meskipun terkesan hal sepele, berdasarkan penelitian dari para dokter di Indonesia, seorang anak baru bisa membaca dan mengeja angka pada umur 4-6 tahun. Rentang usia tersebut tentunya terasa kurang cepat. Padahal, semakin cepat seorang bisa membaca dan mengeja angka, maka semakin cepat pula anak tersebut dapat belajar berhitung dan mempelajari hal-hal lainnya, bahkan termasuk belajar pemrograman.
+Indonesian Numeral Spellers is a REST API that created using Go Programming Language for dealing with numeral translation to its spelled out in Bahasa and vice versa.
 
-Dari permasalah di atas, maka diperlukanlah suatu sarana pembelajaran yang dapat membantu anak-anak balita di Indonesia untuk membaca dan mengeja angka. Dengan adanya solusi tersebut, diharapkan anak-anak dapat membaca dan mengeja angka lebih cepat sehingga mampu segera mempelajari hal-hal lebih besar lainnya dan tentunya meningkatkan tingkat pendidikan di Indonesia.
+## Requirements
 
-## Spesifikasi
-Buatlah dalam bahasa pemrograman **_Go_**, sebuah web service berupa **_REST API_**, yang dapat mengeja (dalam bahasa Indonesia) dari angka yang diberikan serta menuliskan angka yang tepat dari masukkan ejaan angka (dalam bahasa Indonesia juga), dengan ketentuan-ketentuan sebagai berikut :
+In order to run you should install :
+1. Go Programming Language
+2. Node JS (optional)
+3. ReactJS (optional)
 
-1. Terdapat 2 buah endpoint API yang perlu dibuat, yaitu '**GET** /spell' yang menerima parameter angka, serta '**POST** /read' yang menerima body/payload berupa text/ejaan. Jika input parameter atau body/payload tidak valid, maka berikan response keterangan error/gagal dengan format dibebaskan.
+## Usage
 
-2. Sebagai REST API, maka response harus berupa JSON. Struktur data response JSON dibebaskan.
+After you installed the requirements, you should set GOPATH to this repository clone in your disk. Read More: https://golang.org/doc/code.html#GOPATH
 
-3. Program dibuat dengan mengikuti standar development resmi Go (lihat referensi #3), yaitu environment kode program berada pada ```$GOPATH/src/```, misalkan ```$GOPATH/src/github.com/Indonesian-Numeral-Spellers```.
-
-4. Arsitektur program dibebaskan (boleh mengikuti referensi-referensi _REST API with Go_ dari internet), namun harus tetap tersusun dengan rapi dan mengerti apa kegunaan setiap fungsi, file, serta package.
-
-5. Batasan kasus uji : 2000000000 (dua milyar)
-
-## Contoh Kasus Uji
-### Contoh Kasus Uji 1 : Pengejaan
-Request :
-```
-GET '/spell?number=123456'
-```
-Response :
-```JSON
-STATUS CODE 200
-{
-    "status" : "OK",
-    "text" : "seratus dua puluh tiga ribu empat ratus lima puluh enam"
-}
-```
-### Contoh Kasus Uji 2 : Pembacaan
-Request:
-```JSON
-POST '/read'
-{
-    "text" : "seribu sembilan ratus sembilan puluh tujuh"
-}
-```
-Response :
-```JSON
-STATUS CODE 200
-{
-    "status" : "OK",
-    "number" : 1997
-}
+You can run server using
+```bash
+    go run app
 ```
 
-## Bonus
-Buatlah sebuah aplikasi mobile atau website dengan tampilan menarik, yang menggunakan kedua API tersebut. Semakin menarik tampilan, semakin tinggi poin yang akan didapat.
+the server will run at http://localhost:8080
 
-Teknologi yang direkomendasikan : **React.js**
+I make the webapp that used this API. To run this webapp you should install all optional requirments.
 
-## Penilaian
-- Kebenaran fungsionalitas program.
-- Kebenaran API.
-- Pemahaman tentang bahasa pemrograman **Go** serta **REST API**.
-- Kerapihan _repository_ & kode, termasuk **README** (fungsi program, contoh request & response dari setiap endpoint) dan **arsitektur kode Go**.
-- UI (bonus).
+```bash
+    cd webapp
+    npm install
+    npm start
+```
 
-Nilai maksimum yang bisa didapatkan adalah **1600 (2600 dengan bonus)** poin. <br>
-_(Seribu Enam Ratus)_
+## API Endpoints
+#### GET /spell?number={num}
+Example Response
+```json
+    {
+        "status":"OK",
+        "text": "seratus",
+    }
+```
 
-## Referensi Pengerjaan _(sangat disarankan untuk diikuti dengan baik)_
+#### POST /read
+Example Response
+```json
+    {
+        "status":"OK",
+        "number": 100,
+    }
+```
+
+## References
 1. https://golang.org/doc/install
 2. https://github.com/golang/go/wiki/SettingGOPATH
 3. https://golang.org/doc/code.html#Introduction

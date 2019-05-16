@@ -1,0 +1,141 @@
+:root {
+    /* generic */
+    --gutterSm: 0.4rem;
+    --gutterMd: 0.8rem;
+    --gutterLg: 1.6rem;
+    --gutterXl: 2.4rem;
+    --gutterXx: 7.2rem;
+    --colorPrimary400: #7e57c2;
+    --colorPrimary600: #5e35b1;
+    --colorPrimary800: #4527a0;
+    --fontFamily: "Dosis", sans-serif;
+    --fontSizeSm: 1.2rem;
+    --fontSizeMd: 1.6rem;
+    --fontSizeLg: 2.1rem;
+    --fontSizeXl: 2.8rem;
+    --fontSizeXx: 3.6rem;
+    --lineHeightSm: 1.1;
+    --lineHeightMd: 1.8;
+    --transitionDuration: 300ms;
+    --transitionTF: cubic-bezier(0.645, 0.045, 0.355, 1);
+    
+    /* floated labels */
+    --inputPaddingV: var(--gutterMd);
+    --inputPaddingH: var(--gutterLg);
+    --inputFontSize: var(--fontSizeLg);
+    --inputLineHeight: var(--lineHeightMd);
+    --labelScaleFactor: 0.8;
+    --labelDefaultPosY: 50%;
+    --labelTransformedPosY: calc(
+      (var(--labelDefaultPosY)) - 
+      (var(--inputPaddingV) * var(--labelScaleFactor)) - 
+      (var(--inputFontSize) * var(--inputLineHeight))
+    );
+    --inputTransitionDuration: var(--transitionDuration);
+    --inputTransitionTF: var(--transitionTF);
+}
+
+.judul {
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.myNav {
+    background-color: #2C3E50; 
+}
+
+body {
+    background-color: #18BC9C;
+    background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/numbers-background-for-kids-1.jpg);
+}
+
+.dividerAxis {
+    display: inline-block;
+    width: 50px;
+}
+
+.buttonn {
+    display: inline-block;
+}
+
+.buttonCont {
+    text-align: center;
+}
+
+@keyframes reloadanim {
+    from {padding-top: 500px;}
+    to {padding-top: 100px;}
+}
+
+.myContainer {
+    animation: reloadanim 1s;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.textForm {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+}
+.resultContainer {
+    text-align: center;
+}
+
+.result {
+    display: inline-block;
+    width: 90%;
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    text-shadow: 3px 2px 3px #4527a0;
+}
+
+.footnote {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#input {
+    position: relative;
+}
+  
+.input-text {
+    display: block;
+    margin: 0;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--inputFontSize);
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    transition: box-shadow var(--transitionDuration);
+}
+  
+.input-text::placeholder {
+    color: #B0BEC5;
+}
+  
+.input-text:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem var(--colorPrimary600);
+}
+
+#voice {
+    /* opacity: ; */
+    display: inline-block; 
+    width: 50px;
+}
