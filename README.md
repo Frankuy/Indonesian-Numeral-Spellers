@@ -11,13 +11,12 @@ In order to run you should install :
 
 ## Usage
 
-After you installed the requirements, you should set GOPATH to this repository clone in your disk. Read More: https://golang.org/doc/code.html#GOPATH
-
-You can run server using
+After you installed the requirements, clone this repo in $GOPATH/src/github.com. 
 ```bash
-    go run app
+    go install github.com/Indonesian-Numeral-Spellers/app
 ```
 
+run app.exe in bin directory file created in $GOPATH
 the server will run at http://localhost:8080
 
 I make the webapp that used this API. To run this webapp you should install all optional requirments.
