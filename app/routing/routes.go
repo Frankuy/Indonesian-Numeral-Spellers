@@ -1,7 +1,8 @@
-package main
+package routing
 
 import (
-	"net/http"
+    "net/http"
+    handler "github.com/Indonesian-Numeral-Spellers/app/handlers"
 )
 
 type Route struct {
@@ -18,12 +19,12 @@ var routes = Routes{
         "SpellGet",
         "GET",
         "/spell",
-        SpellGet,
+        handler.SpellGet,
 	},
 	Route{
 		"SpellPost",
         "POST",
         "/read",
-        SpellPost,
+        handler.SpellPost,
 	},
 }

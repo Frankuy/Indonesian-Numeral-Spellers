@@ -1,10 +1,13 @@
-package main
+package handlers
+
 import (
 	"net/http"
 	"strconv"
 	"encoding/json"
 	"io"
 	"io/ioutil"
+	model "github.com/Indonesian-Numeral-Spellers/app/model"
+	backend "github.com/Indonesian-Numeral-Spellers/app/backend"
 )
 
 func SpellGet(w http.ResponseWriter, r *http.Request) {
@@ -13,7 +16,7 @@ func SpellGet(w http.ResponseWriter, r *http.Request) {
 	if ok {
 		number, err := strconv.Atoi(number[0])
 		if err == nil {
-			resp := ResponseToString{Status:"OK", Text:NumeralSpeller(number)}
+			resp := model.ResponseToString{Status:"OK", Text:backend.NumeralSpeller(number)}
 			res, _ := json.MarshalIndent(resp, "", "  ")
 			w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 			w.Write(res)
@@ -31,7 +34,7 @@ func SpellPost(w http.ResponseWriter, r *http.Request) {
         panic(err)
 	}
 
-	var data Text
+	var data model.Text
 	if err := json.Unmarshal(body, &data); err != nil {
 		w.WriteHeader(http.StatusNotAcceptable)
 		w.Write([]byte("STATUS CODE 406\nData harus merupakan teks"))
@@ -44,14 +47,14 @@ func SpellPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	spell := SpellToNumeral(data.Text)
+	spell := backend.SpellToNumeral(data.Text)
 	if spell==0 {
 		w.WriteHeader(http.StatusNotAcceptable)
 		w.Write([]byte("STATUS CODE 406\nData harus merupakan teks"))
 		return
 	}
 
-	resp := ResponseToNumber{Status:"OK", Number:spell}
+	resp := model.ResponseToNumber{Status:"OK", Number:spell}
 	res, _ := json.MarshalIndent(resp, "", "  ")
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.Write(res)

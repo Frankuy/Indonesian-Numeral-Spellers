@@ -1,4 +1,4 @@
-package main
+package model
 
 type ResponseToString struct {
 	Status string `json:"status"`

@@ -1,8 +1,6 @@
-package main
+package routing
 
 import (
-	// "net/http"
-	
 	"github.com/gorilla/mux"
 )
 
